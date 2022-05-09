@@ -1,13 +1,410 @@
-body {
+body{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 2em;
+  position: relative;
+  /* overflow: hidden; */
+  /* max-width: 1500px; */
+  
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html{
+  font-size: 62.5%;
+}
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+
+/*---------------- navbar ---------*/
+
+.navbar{
+  width: 100%;
+  background: black;
+  height: 10vh;
+  position: relative;
+  
+}
+
+.navabr-container{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* position: relative; */
+  /* overflow-x: hidden; */
+
+
+}
+
+.navabr-container ul{
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+
+
+.navabr-container a{
+  color: white;
+}
+
+.navabr-container ul {
+  z-index: 5;
+}
+.navabr-container ul li{
+  overflow: hidden;
+}
+.navabr-container ul li a{
+  padding: 10px;
+
+}
+.navabr-container ul li a:hover{
+  background: rgb(238, 231, 231);
+  color: black;
+  
+}
+.navabr-container button{
+  color: white;
+  padding: 8px 20px;
+  background: none;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.logo1{
+  color: white;
+  /* width: 20px;
+  height: 20px; */
+  font-size: 1.7em;
+}
+.hamber-menu{
+  color: white;
+  /* width: 20px;
+  height: 20px; */
+  font-size: 1.7em;
+
+}
+
+.hamber{
+  display: none;
+  cursor: pointer;
+}
+.ul-btn{
+  display: none;
+}
+
+@media screen and (max-width:650px){
+  .navabr-container .links{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top:45px;
+    background: black;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    right: -40px;
+    margin: 0 auto;
+    transform: translateX(-100%);
+    transition: 0.2s linear;
+    margin-bottom: 500px;
+  }
+  .show-links{
+    transform: translateX(0) !important;
+  }
+
+  .navabr-container ul li{
+    /* padding-right: 20px; */
+    padding: 20px;
+    text-align: center;
+    line-height: 1.5em;
+  }
+  .navabr-container ul li a{
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 20px 0;
+  }
+
+  .navabr-container ul li:hover a{
+    background: rgb(248, 243, 243);
+    color: black;
+
+
+  }
+  .navabr-container .sign-btn{
+    display: none;
+  }
+  .hamber{
+    display: block;
+  }
+  .navabr-container ul li:hover .ul-btn{
+    color: black;
+    border: 1px solid black;
+
+  }
+  .ul-btn{
+    display: block;
+    margin: 0 auto;
+  }
+
+
+}
+
+
+/*----------------- hero section ---------------------*/
+
+.hero-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.hero-section video{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -2;
+  object-fit: cover;
+}
+
+.hero-element{
+  color: white;
+}
+
+.hero-element h1{
+  font-size: 2.5em;
+}
+.hero-element h2{
+  text-align: center;
+}
+
+.hero-btn{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-left{
+  padding: 8px 20px;
+  border: 1px solid white;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-right{
+  padding: 8px 20px;
+  border: 1px solid white;
+  background: white;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+@media screen and (max-width:600px){
+  .hero-btn{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+  .btn-left{
+    margin-bottom: 10px;
+    margin-left: 0;
+  }
+  .hero-element h1{
+    font-size: 2em;
+  }
+}
+
+
+
+/*----------- cart section -----------*/
+
+.cart-section{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.first-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+.item-row1 {
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 10px 10px 10px gray;
+  position: relative;
+}
+.item-row1::after{
+  content: attr(data-category);
+  position: absolute;
+  left: 0;
+  top:350px;
+  background: greenyellow;
+  color: black;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+
+.item-row1 img{
+  width: 100%;
+  border-radius: 10px;
+  height: 400px;
+}
+
+.secont-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  margin-top: 10px;
+}
+
+.item-row2{
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 10px 10px 10px gray;
+  position: relative;
+}
+.item-row2 img{
+  width: 100%;
+  border-radius: 10px;
+  height: 200px;
+}
+.item-row1 img:hover{
+  transform: scale(1.05);
+
+}
+.item-row2 img:hover{
+  transform: scale(1.05);
+
+}
+.item-row2::after{
+  content: attr(data-category);
+  position: absolute;
+  left: 0;
+  top:150px;
+  background: greenyellow;
+  color: black;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 0.8em;
+}
+
+@media screen and (max-width:850px){
+  .first-row{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
+  .secont-row{
+    display: grid;
+    grid-template-columns:1fr;
+    grid-gap: 10px;
+    margin-top: 10px;
+  }
+  .item-row2 img{
+    width: 100%;
+    border-radius: 10px;
+    height: 400px;
+  }
+
+
+
+}
+
+
+/* -------------------- footer --------*/
+
+.footer{
+  display: flex;
+  background: black;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.footer h1{
+  font-size: 3rem;
+}
+
+.footer form{
+  display: flex;
+  flex-direction: column;
+}
+.footer form input{
+  margin-bottom: 10px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+}
+.footer form button{
+  margin-bottom: 10px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.links{
+  display: flex;
+  width: 100%;
+  
+  justify-content: space-around;
+}
+
+.links .about, .contact, .social-media{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}  
+
+.about h3, .contact h3, .social-media h3{
+  margin-bottom: 10px;
+  
+}
+
+.bottom{
+  display: flex;
+  width: 100%;
+  
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.facebook, .twitter, .youtube{
+  margin: 0 5px;
+}
+
+@media screen and (max-width:700px){
+
+  .footer h1{
+    font-size: 2rem;
+  }
+  .footer h3{
+    font-size: 1.5rem;
+  }
+
+
 }
